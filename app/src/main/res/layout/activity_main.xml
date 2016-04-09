@@ -41,16 +41,34 @@ android:layout_weight="5">
     android:layout_width="100dp"
     android:layout_height="100dp"
     android:id="@+id/ivTestDrag"
+    android:text="if(){   } else {  }\n"
+    android:tag="GRASP IO\n"
     android:background="@drawable/grasp"/>
     <ImageView
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:id="@+id/ivTestOrange"
+        android:tag="PUMPKIN\n"
+        android:text = "while"
         android:background="@drawable/orange"/>
     <ImageView
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:id="@+id/ivTestfish"
+        android:text = "StarFish\n"
+        android:tag="StarFish\n"
         android:background="@drawable/starfish"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textViewUpload"
+        android:textSize="20dp"
+        android:textColor="@color/colorPrimary"
+        />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text = "upload"
+        android:id="@+id/upload"/>
 </LinearLayout>
     </LinearLayout>

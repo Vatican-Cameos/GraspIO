@@ -9,6 +9,7 @@ import android.view.DragEvent;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -16,8 +17,10 @@ import android.widget.TextView;
 import com.jmedeisis.draglinearlayout.DragLinearLayout;
 
 public class MainActivity extends AppCompatActivity {
-    String ultimateCode;
+    String ultimateCode ="//Code generated \n";
     ImageView im;
+    Button upload ;
+    TextView gen;
     DragLinearLayout dragLinearLayout;
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
     @Override
@@ -25,7 +28,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         im = (ImageView)findViewById(R.id.ivTestDrag);
-
+        upload = (Button)findViewById(R.id.upload);
+         gen = (TextView)findViewById(R.id.textViewUpload);
         findViewById(R.id.container).setOnDragListener(new MyDragListener());
         im.setOnTouchListener(new MyOnTouchListener());
         findViewById(R.id.ivTestfish).setOnTouchListener(new MyOnTouchListener());
@@ -38,6 +42,30 @@ public class MainActivity extends AppCompatActivity {
             dragLinearLayout.setViewDraggable(child, child);
         }*/
 
+
+
+        upload.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ultimateCode = "//Code Generated \n";
+                for(int i = 0; i < dragLinearLayout.getChildCount(); i++) {
+                    View child = dragLinearLayout.getChildAt(i);
+                    // the child will act as its own drag handle
+                    ultimateCode += child.getTag();
+                    gen.setText(ultimateCode);
+                }
+            }
+        });
+
+
+
+        dragLinearLayout.setOnViewSwapListener(new DragLinearLayout.OnViewSwapListener() {
+            @Override
+            public void onSwap(View firstView, int firstPosition,
+                               View secondView, int secondPosition) {
+
+            }
+        });
     }
 
 
@@ -72,11 +100,17 @@ public class MainActivity extends AppCompatActivity {
 
                         i.setBackgroundResource(R.drawable.grasp);
                         dragLinearLayout.addDragView(i,i);*/
+
+
+
+
                         for(int i = 0; i < dragLinearLayout.getChildCount(); i++){
                             View child = dragLinearLayout.getChildAt(i);
                             // the child will act as its own drag handle
+
+
                             dragLinearLayout.setViewDraggable(child, child);
-        }
+                         }
 
 
                     }else {
@@ -115,14 +149,14 @@ public class MainActivity extends AppCompatActivity {
 
                         break;
                     case R.id.ivTestOrange:
-                        ClipData data2 = ClipData.newPlainText("Label", "if(){   } else {  }\n");
+                        ClipData data2 = ClipData.newPlainText("Label", "while\n");
                         View.DragShadowBuilder shadowBuilder2 = new View.DragShadowBuilder(view);
                         view.startDrag(data2, shadowBuilder2, view, 0);
                         view.setVisibility(View.INVISIBLE);
 
                         break;
                     case R.id.ivTestfish:
-                        ClipData data3 = ClipData.newPlainText("Label", "if(){   } else {  }\n");
+                        ClipData data3 = ClipData.newPlainText("Label", "struct\n");
                         View.DragShadowBuilder shadowBuilder3 = new View.DragShadowBuilder(view);
                         view.startDrag(data3, shadowBuilder3, view, 0);
                         view.setVisibility(View.INVISIBLE);
