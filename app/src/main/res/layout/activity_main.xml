@@ -3,12 +3,13 @@
     android:layout_width="match_parent"
     android:weightSum="10"
     android:orientation="horizontal"
+    android:id="@+id/ll"
     xmlns:android="http://schemas.android.com/apk/res/android">
 <com.jmedeisis.draglinearlayout.DragLinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/container"
     android:layout_weight="5"
-
+    android:background="#000"
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
 
@@ -34,30 +35,62 @@
 <LinearLayout
 android:layout_width="match_parent"
 android:layout_height="match_parent"
-android:background="#000"
+android:background="#fff"
+android:id="@+id/llr"
 android:orientation="vertical"
 android:layout_weight="5">
-<ImageView
-    android:layout_width="100dp"
-    android:layout_height="100dp"
-    android:id="@+id/ivTestDrag"
-    android:text="if(){   } else {  }\n"
-    android:tag="GRASP IO\n"
-    android:background="@drawable/grasp"/>
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:id="@+id/ivTestDrag"
+        android:text="GraspIO"
+        android:tag="grasp"
+        android:background="@drawable/grasp"/>
     <ImageView
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:id="@+id/ivTestOrange"
-        android:tag="PUMPKIN\n"
+        android:tag="PUMPKIN"
         android:text = "while"
         android:background="@drawable/orange"/>
-    <ImageView
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:id="@+id/ivTestfish"
-        android:text = "StarFish\n"
-        android:tag="StarFish\n"
-        android:background="@drawable/starfish"/>
+
+    <LinearLayout
+    android:id="@+id/content"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/structure"
+    >
+
+        <include
+            layout="@layout/layout_header"
+             />
+        <com.jmedeisis.draglinearlayout.DragLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/struct"
+            android:text = "struct"
+            android:tag="struct"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize=""
+                android:text="DRAG AND DROP HERE"/>
+
+
+        </com.jmedeisis.draglinearlayout.DragLinearLayout>
+        <include
+            layout="@layout/layout_footer"
+            android:id="@+id/footer"
+            android:layout_alignParentBottom="true"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            />
+
+    </LinearLayout>
+
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
