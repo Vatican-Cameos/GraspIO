@@ -75,7 +75,44 @@ android:layout_weight="5">
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize=""
+                android:textSize="25dp"
+                android:text="DRAG AND DROP HERE"/>
+
+
+        </com.jmedeisis.draglinearlayout.DragLinearLayout>
+        <include
+            layout="@layout/layout_footer"
+            android:id="@+id/footer"
+            android:layout_alignParentBottom="true"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/content2"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/structure"
+        >
+
+        <include
+            layout="@layout/layout_header"
+            />
+        <com.jmedeisis.draglinearlayout.DragLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/struct2"
+            android:text = "struct"
+            android:tag="struct"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="25dp"
                 android:text="DRAG AND DROP HERE"/>
 
 
