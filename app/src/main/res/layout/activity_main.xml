@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout android:layout_height="match_parent"
     android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
     android:weightSum="10"
     android:orientation="horizontal"
     android:id="@+id/ll"
@@ -9,26 +10,12 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/container"
     android:layout_weight="5"
+    android:padding="10dp"
     android:background="#000"
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
 
-   <!-- <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="TEXT IS THIS TNI TIN INT " />
 
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="120dp"
-        android:scaleType="centerCrop"
-        android:src="@mipmap/ic_launcher"/>
-
-    <Button
-        android:id="@+id/button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="BUtton"/>-->
 
 </com.jmedeisis.draglinearlayout.DragLinearLayout>
 
@@ -39,20 +26,65 @@ android:background="#fff"
 android:id="@+id/llr"
 android:orientation="vertical"
 android:layout_weight="5">
-    <ImageView
+
+    <FrameLayout
+        android:id="@+id/frame"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:id="@+id/ivTestDrag"
-        android:text="GraspIO"
-        android:tag="grasp"
-        android:background="@drawable/grasp"/>
-    <ImageView
+        android:clickable="true"
+        android:foreground="?attr/selectableItemBackground">
+
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:id="@+id/ivTestDrag"
+            android:text="GraspIO"
+
+            android:tag="grasp"
+            android:background="@drawable/grasp"/>
+        <ImageView
+            android:id="@+id/drag_handle"
+            android:layout_width="32dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="top|left"
+            android:background="@color/colorAccent"
+            tools:ignore="RtlHardcoded"/>
+
+
+    </FrameLayout>
+    <FrameLayout
+        android:id="@+id/frame2"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:id="@+id/ivTestOrange"
-        android:tag="PUMPKIN"
-        android:text = "while"
-        android:background="@drawable/orange"/>
+        android:clickable="true"
+        android:foreground="?attr/selectableItemBackground">
+
+        <View
+            android:id="@+id/drag_handle1"
+            android:layout_width="32dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="top|left"
+            android:background="#20000000"
+            tools:ignore="RtlHardcoded"/>
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:id="@+id/ivTestOrange"
+            android:tag="PUMPKIN"
+            android:text = "while"
+            android:background="@drawable/orange"/>
+
+
+    </FrameLayout>
+
+
+
+
+
+
+
+
 
     <LinearLayout
     android:id="@+id/content"
@@ -80,6 +112,11 @@ android:layout_weight="5">
 
 
         </com.jmedeisis.draglinearlayout.DragLinearLayout>
+
+
+
+
+
         <include
             layout="@layout/layout_footer"
             android:id="@+id/footer"

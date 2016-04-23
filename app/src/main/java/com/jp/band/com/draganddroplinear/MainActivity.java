@@ -20,9 +20,11 @@ import android.widget.TextView;
 import com.jmedeisis.draglinearlayout.DragLinearLayout;
 
 import java.lang.reflect.Field;
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
     String ultimateCode ="//Code generated \n";
+    View v;
     ImageView im;
     Button upload ;
     TextView gen;
@@ -33,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         im = (ImageView)findViewById(R.id.ivTestDrag);
+        View v = (View)findViewById(R.id.drag_handle);
         upload = (Button)findViewById(R.id.upload);
          gen = (TextView)findViewById(R.id.textViewUpload);
         findViewById(R.id.container).setOnDragListener(new MyDragListener());
@@ -41,13 +44,14 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.llr).setOnDragListener(new MyDragListener());
 
 
-        im.setOnTouchListener(new MyOnTouchListener());
+        findViewById(R.id.frame).setOnTouchListener(new MyOnTouchListener());
+        findViewById(R.id.frame2).setOnTouchListener(new MyOnTouchListener());
         findViewById(R.id.content).setOnTouchListener(new MyOnTouchListener());
         findViewById(R.id.content2).setOnTouchListener(new MyOnTouchListener());
 
 
 
-        findViewById(R.id.ivTestOrange).setOnTouchListener(new MyOnTouchListener());
+       // findViewById(R.id.ivTestOrange).setOnTouchListener(new MyOnTouchListener());
 
         dragLinearLayout2 = (DragLinearLayout) findViewById(R.id.struct) ;
         dragLinearLayout3 = (DragLinearLayout) findViewById(R.id.struct2) ;
@@ -129,12 +133,20 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+
+
                         for(int i = 0; i < dragLinearLayout.getChildCount(); i++){
-                            View child = dragLinearLayout.getChildAt(i);
+                           // View child = dragLinearLayout.getChildAt(i);
                             // the child will act as its own drag handle
+                            ViewGroup child = (ViewGroup) dragLinearLayout.getChildAt(i);
+                            // the child will act as its own drag handle
+                            dragLinearLayout.setViewDraggable(findViewById(R.id.frame), v);
+                            if(i>0){
+                                dragLinearLayout.setViewDraggable(findViewById(R.id.frame2), v );
+                            }
 
 
-                            dragLinearLayout.setViewDraggable(child, child);
+
                          }
 
 
@@ -169,11 +181,11 @@ public class MainActivity extends AppCompatActivity {
 
 
                         for(int i = 0; i < dragLinearLayout2.getChildCount(); i++){
-                            View child = dragLinearLayout2.getChildAt(i);
+                            ViewGroup child = (ViewGroup) dragLinearLayout2.getChildAt(i);
                             // the child will act as its own drag handle
-
-
-                            dragLinearLayout2.setViewDraggable(child, child);
+                            View childFirst = child.getChildAt(0);
+                            View childSecond = child.getChildAt(1);
+                            dragLinearLayout2.setViewDraggable(childSecond, childFirst);
                         }
 
 
@@ -212,7 +224,7 @@ public class MainActivity extends AppCompatActivity {
                         View child = dragLinearLayout3.getChildAt(i);
                         // the child will act as its own drag handle
 
-
+                        child.setOnTouchListener(new MyOnTouchListener());
                         dragLinearLayout3.setViewDraggable(child, child);
                     }
 
@@ -248,14 +260,14 @@ public class MainActivity extends AppCompatActivity {
         public boolean onTouch(View view, MotionEvent motionEvent) {
             if (motionEvent.getAction() == MotionEvent.ACTION_DOWN) {
                 switch (view.getId()) {
-                    case R.id.ivTestDrag:
+                    case R.id.frame:
                         ClipData data = ClipData.newPlainText("Label", "grasp");
                         View.DragShadowBuilder shadowBuilder = new View.DragShadowBuilder(view);
                         view.startDrag(data, shadowBuilder, view, 0);
                         view.setVisibility(View.INVISIBLE);
 
                         break;
-                    case R.id.ivTestOrange:
+                    case R.id.frame2:
                         ClipData data2 = ClipData.newPlainText("Label", "orange");
                         View.DragShadowBuilder shadowBuilder2 = new View.DragShadowBuilder(view);
                         view.startDrag(data2, shadowBuilder2, view, 0);
