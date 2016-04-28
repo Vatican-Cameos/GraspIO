@@ -20,17 +20,19 @@
 </com.jmedeisis.draglinearlayout.DragLinearLayout>
 
 <LinearLayout
-android:layout_width="match_parent"
-android:layout_height="match_parent"
-android:background="#fff"
-android:id="@+id/llr"
-android:orientation="vertical"
-android:layout_weight="5">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff"
+
+    android:id="@+id/llr"
+    android:orientation="vertical"
+    android:layout_weight="5">
 
     <LinearLayout
         android:id="@+id/frame"
         android:layout_width="100dp"
         android:layout_height="100dp"
+        android:layout_marginLeft="10dp"
         android:clickable="true"
         android:orientation="horizontal"
         android:foreground="?attr/selectableItemBackground">
@@ -58,6 +60,7 @@ android:layout_weight="5">
         android:id="@+id/frame2"
         android:layout_width="100dp"
         android:layout_height="100dp"
+        android:layout_marginLeft="10dp"
         android:clickable="true"
         android:orientation="horizontal"
         android:foreground="?attr/selectableItemBackground">
@@ -93,6 +96,8 @@ android:layout_weight="5">
     android:id="@+id/content"
     android:orientation="vertical"
     android:layout_width="match_parent"
+        android:layout_marginLeft="10dp"
+        android:layout_marginBottom="30dp"
     android:layout_height="wrap_content"
     android:background="@drawable/structure"
     >
@@ -133,6 +138,8 @@ android:layout_weight="5">
 
     <LinearLayout
         android:id="@+id/content2"
+        android:layout_marginLeft="10dp"
+        android:layout_marginBottom="30dp"
 
         android:orientation="vertical"
         android:layout_width="match_parent"
