@@ -27,23 +27,24 @@ android:id="@+id/llr"
 android:orientation="vertical"
 android:layout_weight="5">
 
-    <FrameLayout
+    <LinearLayout
         android:id="@+id/frame"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:clickable="true"
+        android:orientation="horizontal"
         android:foreground="?attr/selectableItemBackground">
 
 
         <ImageView
-            android:layout_width="100dp"
+            android:layout_width="80dp"
             android:layout_height="100dp"
             android:id="@+id/ivTestDrag"
             android:text="GraspIO"
 
             android:tag="grasp"
             android:background="@drawable/grasp"/>
-        <ImageView
+        <View
             android:id="@+id/drag_handle"
             android:layout_width="32dp"
             android:layout_height="match_parent"
@@ -52,31 +53,33 @@ android:layout_weight="5">
             tools:ignore="RtlHardcoded"/>
 
 
-    </FrameLayout>
-    <FrameLayout
+    </LinearLayout>
+    <LinearLayout
         android:id="@+id/frame2"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:clickable="true"
+        android:orientation="horizontal"
         android:foreground="?attr/selectableItemBackground">
 
-        <View
-            android:id="@+id/drag_handle1"
-            android:layout_width="32dp"
-            android:layout_height="match_parent"
-            android:layout_gravity="top|left"
-            android:background="#20000000"
-            tools:ignore="RtlHardcoded"/>
         <ImageView
-            android:layout_width="100dp"
+            android:layout_width="80dp"
             android:layout_height="100dp"
             android:id="@+id/ivTestOrange"
             android:tag="PUMPKIN"
             android:text = "while"
             android:background="@drawable/orange"/>
+        <View
+            android:id="@+id/drag_handle1"
+            android:layout_width="32dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="top|left"
+            android:background="@color/colorAccent"
+            tools:ignore="RtlHardcoded"/>
 
 
-    </FrameLayout>
+
+    </LinearLayout>
 
 
 
@@ -107,13 +110,13 @@ android:layout_weight="5">
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="25dp"
+                android:textSize="20dp"
+                android:id="@+id/tvdisap"
+                android:textColor="#fff"
                 android:text="DRAG AND DROP HERE"/>
 
 
         </com.jmedeisis.draglinearlayout.DragLinearLayout>
-
-
 
 
 
@@ -130,6 +133,7 @@ android:layout_weight="5">
 
     <LinearLayout
         android:id="@+id/content2"
+
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -149,7 +153,9 @@ android:layout_weight="5">
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="25dp"
+                android:textSize="20dp"
+                android:textColor="#fff"
+                android:id="@+id/tvdisap2"
                 android:text="DRAG AND DROP HERE"/>
 
 

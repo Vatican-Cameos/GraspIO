@@ -19,6 +19,8 @@ import android.widget.TextView;
 
 import com.jmedeisis.draglinearlayout.DragLinearLayout;
 
+import org.w3c.dom.Text;
+
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 
@@ -135,19 +137,15 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-                        for(int i = 0; i < dragLinearLayout.getChildCount(); i++){
+                       /* for(int i = 0; i < dragLinearLayout.getChildCount(); i++){
                            // View child = dragLinearLayout.getChildAt(i);
                             // the child will act as its own drag handle
                             ViewGroup child = (ViewGroup) dragLinearLayout.getChildAt(i);
                             // the child will act as its own drag handle
-                            dragLinearLayout.setViewDraggable(findViewById(R.id.frame), v);
-                            if(i>0){
-                                dragLinearLayout.setViewDraggable(findViewById(R.id.frame2), v );
-                            }
+                            View vi = (View)findViewById(R.id.drag_handle);
+                            dragLinearLayout.setViewDraggable(child.getChildAt(0),child.getChildAt(0));
 
-
-
-                         }
+                         }*/
 
 
 
@@ -165,6 +163,8 @@ public class MainActivity extends AppCompatActivity {
                         view.setVisibility(View.VISIBLE);
                         ClipData.Item item = event.getClipData().getItemAt(0);
                         ultimateCode += item.getText().toString();
+                        TextView tv  = (TextView)findViewById(R.id.tvdisap);
+                        //tv.setVisibility(View.GONE);
 
 
                         /*ImageView  i  = new ImageView(MainActivity.this);
@@ -180,14 +180,14 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-                        for(int i = 0; i < dragLinearLayout2.getChildCount(); i++){
-                            ViewGroup child = (ViewGroup) dragLinearLayout2.getChildAt(i);
+                      /*  for(int i = 0; i < dragLinearLayout2.getChildCount(); i++){
+                            View child =  dragLinearLayout2.getChildAt(i);
                             // the child will act as its own drag handle
-                            View childFirst = child.getChildAt(0);
-                            View childSecond = child.getChildAt(1);
-                            dragLinearLayout2.setViewDraggable(childSecond, childFirst);
+                           *//* View childFirst = child.getChildAt(0);
+                            View childSecond = child.getChildAt(1);*//*
+                            dragLinearLayout2.setViewDraggable(child, child);
                         }
-
+*/
 
 
 
@@ -205,7 +205,8 @@ public class MainActivity extends AppCompatActivity {
                     view.setVisibility(View.VISIBLE);
                     ClipData.Item item = event.getClipData().getItemAt(0);
                     ultimateCode += item.getText().toString();
-
+                    TextView tv  = (TextView)findViewById(R.id.tvdisap2);
+                        //tv.setVisibility(View.GONE);
 
                         /*ImageView  i  = new ImageView(MainActivity.this);
                         String fname = item.getText().toString();
@@ -220,14 +221,14 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-                    for(int i = 0; i < dragLinearLayout3.getChildCount(); i++){
+                   /* for(int i = 0; i < dragLinearLayout3.getChildCount(); i++){
                         View child = dragLinearLayout3.getChildAt(i);
                         // the child will act as its own drag handle
 
                         child.setOnTouchListener(new MyOnTouchListener());
                         dragLinearLayout3.setViewDraggable(child, child);
                     }
-
+*/
 
 
 
